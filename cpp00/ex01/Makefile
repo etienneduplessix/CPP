@@ -6,20 +6,19 @@
 #    By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 13:18:10 by etiennedupl       #+#    #+#              #
-#    Updated: 2024/01/18 14:38:18 by etiennedupl      ###   ########.fr        #
+#    Updated: 2024/01/25 06:10:07 by etiennedupl      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 NAME = phonebook
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror 
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
-OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+$(NAME):
+	$(CXX) $(SRCS)   $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

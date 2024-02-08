@@ -6,7 +6,7 @@
 /*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:17:54 by etiennedupl       #+#    #+#             */
-/*   Updated: 2024/01/18 14:33:40 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2024/02/08 19:32:08 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ PhoneBook::~PhoneBook() {}
 
 void PhoneBook::addContact() {
     if (numContacts == maxContacts) {
-        // Replace the oldest contact
         for (int i = 0; i < maxContacts - 1; ++i) {
             contacts[i] = contacts[i + 1];
         }
@@ -32,7 +31,7 @@ void PhoneBook::addContact() {
     std::cout << "Contact added successfully!" << std::endl;
 }
 
-void PhoneBook::() {
+void PhoneBook::searchContact() {
     if (numContacts == 0) {
         std::cout << "Phonebook is empty. Add contacts first." << std::endl;
         return;
