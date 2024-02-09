@@ -1,46 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 13:18:22 by etiennedupl       #+#    #+#             */
-/*   Updated: 2024/02/08 19:40:32 by etiennedupl      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef CONTACT_H
+# define CONTACT_H
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact {
-public:
-    Contact();
+	public:
+		int			exists;
+		int			index;
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	number;
 
-
-    void setFirstName(const std::string& firstName);
-    void setLastName(const std::string& lastName);
-    void setNickname(const std::string& nickname);
-    void setPhoneNumber(const std::string& phoneNumber);
-    void setDarkestSecret(const std::string& darkestSecret);
-
-    // Getter methods
-    std::string getFirstName() const;
-    std::string getLastName() const;
-    std::string getNickname() const;
-
-    std::istream& input(std::istream& in);
-    std::ostream& display(std::ostream& out) const;
-
-private:
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;
+		void print_contact ();
 };
 
-#endif 
+#endif

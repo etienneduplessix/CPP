@@ -1,33 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/18 13:18:10 by etiennedupl       #+#    #+#              #
-#    Updated: 2024/01/25 06:10:07 by etiennedupl      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-CXX = c++
-NAME = phonebook
-CXXFLAGS = -Wall -Wextra -Werror 
-SRCS = main.cpp PhoneBook.cpp Contact.cpp
+NAME =	phonebook
+CC = c++
+FLAGS = -Wall -Wextra -Werror
+SRCS	= $(shell find ./. -iname "*.cpp")
+HEADERS = $(shell find ./. -iname "*.hpp")
 
 all: $(NAME)
 
-$(NAME):
-	$(CXX) $(SRCS)   $(CXXFLAGS) -o $@ $^
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+${NAME}:${SRCS} ${HEADERS}
+	${CC} ${FALGS} ${SRCS} -o ${NAME}
 
 clean:
-	rm -f $(OBJS)
-
-fclean: clean
 	rm -f $(NAME)
+fclean: clean
 
 re: fclean all
 

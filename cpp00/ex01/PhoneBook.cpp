@@ -1,63 +1,39 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 13:17:54 by etiennedupl       #+#    #+#             */
-/*   Updated: 2024/02/08 19:32:08 by etiennedupl      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : numContacts(0) {}
+static void print_val(std::string val)
+{
+	if (val.length() > 10)
+	{
+		std::cout.write (val.c_str(), 9);
+		std::cout << ".|";
+	}
+	else
+		std::cout << std::setw(10) << val << "|";
+}
+void PhoneBook::add_contact(Contact contact)
+{
+	int	i;
 
-PhoneBook::~PhoneBook() {}
-
-void PhoneBook::addContact() {
-    if (numContacts == maxContacts) {
-        for (int i = 0; i < maxContacts - 1; ++i) {
-            contacts[i] = contacts[i + 1];
-        }
-        --numContacts;
-    }
-
-    Contact newContact;
-    std::cin >> newContact;
-    contacts[numContacts++] = newContact;
-
-    std::cout << "Contact added successfully!" << std::endl;
+	i = 0;
+	while (i < maxContacts && this->contacts[i].exists == 1)
+		i++;
+	i %= maxContacts;
+	this->contacts[i] = contact;
+	this->contacts[i].exists = 1;
+	this->contacts[i].index = i;
 }
 
-void PhoneBook::searchContact() {
-    if (numContacts == 0) {
-        std::cout << "Phonebook is empty. Add contacts first." << std::endl;
-        return;
-    }
+void PhoneBook::print_contacts(void)
+{
+	int i = -1;
+	while (++i < maxContacts && this->contacts[i].exists == 1)
+	{
+		std::cout << std::setw(10) << this->contacts[i].index << "|";
+		print_val (this->contacts[i].first_name);
+		print_val (this->contacts[i].last_name);
+		print_val (this->contacts[i].nickname);
+		print_val (this->contacts[i].number);
+		std::cout << std::endl;
 
-    displayContactsList();
-
-    int index;
-    std::cout << "Enter index of the entry to display: ";
-    std::cin >> index;
-
-    if (index < 0 || index >= numContacts) {
-        std::cout << "Invalid index. Try again." << std::endl;
-    } else {
-        std::cout << contacts[index] << std::endl;
-    }
-}
-
-void PhoneBook::displayContactsList() const {
-    std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
-              << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << "|"
-              << std::endl;
-
-    for (int i = 0; i < numContacts; ++i) {
-        std::cout << std::setw(10) << i << "|" << std::setw(10) << contacts[i].getFirstName() << "|"
-                  << std::setw(10) << contacts[i].getLastName() << "|" << std::setw(10)
-                  << contacts[i].getNickname() << "|" << std::endl;
-    }
+	}
 }
