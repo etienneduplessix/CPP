@@ -6,7 +6,7 @@
 /*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:18:22 by etiennedupl       #+#    #+#             */
-/*   Updated: 2024/02/08 19:32:12 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2024/02/08 19:40:32 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Contact {
 public:
     Contact();
 
-    // Setter methods
+
     void setFirstName(const std::string& firstName);
     void setLastName(const std::string& lastName);
     void setNickname(const std::string& nickname);
@@ -43,4 +43,4 @@ private:
     std::string darkestSecret;
 };
 
-#endif // CONTACT_HPP
+#endif 
