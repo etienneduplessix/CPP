@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-void randomChump(std::string name) {
+Zombie* zombieHorde( int N, std::string name );{
     Zombie zombieOnStack(name);
     zombieOnStack.announce();
 } 
