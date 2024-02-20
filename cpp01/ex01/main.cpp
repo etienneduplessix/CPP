@@ -1,10 +1,17 @@
 #include "Zombie.hpp"
 
+
+
 int main() {
-    Zombie* heapZombie = newZombie("Zombie1");
-    heapZombie->announce();
-    randomChump("Zombie1");
-    delete heapZombie;
+  
+    int hordeSize = 5;
+    Zombie* zombieHordePtr = zombieHorde(hordeSize, "HordeZombie");
+
+    // Announce each zombie in the horde
+    for (int i = 0; i < hordeSize; ++i) {
+        zombieHordePtr[i].announce();
+    }
+    delete[] zombieHordePtr;
 
     return 0;
 }
