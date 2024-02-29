@@ -1,29 +1,23 @@
 #include "HumanB.hpp"
 
-// Constructors
-HumanB ::HumanB ()
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
+{ }
+
+HumanB::HumanB(std::string name, Weapon& weapon) : _name(name), _weapon(&weapon)
+{ }
+
+HumanB::~HumanB()
+{ }
+
+void HumanB::attack() const
 {
-	std::cout << "\e[0;33mDefault Constructor called of HumanB \e[0m" << std::endl;
+	if (_weapon == NULL)
+		std::cout << _name << " has no weapon" << std::endl;
+	else
+		std::cout << _name << " attacks with thier " << _weapon->getType() << std::endl;
 }
 
-HumanB ::HumanB (const HumanB  &copy)
+void HumanB::setWeapon(Weapon& weapon)
 {
-	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of HumanB \e[0m" << std::endl;
+	_weapon = &weapon;
 }
-
-
-// Destructor
-HumanB ::~HumanB ()
-{
-	std::cout << "\e[0;31mDestructor called of HumanB \e[0m" << std::endl;
-}
-
-
-// Operators
-HumanB  & HumanB ::operator=(const HumanB  &assign)
-{
-	(void) assign;
-	return *this;
-}
-

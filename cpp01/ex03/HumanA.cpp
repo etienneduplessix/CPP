@@ -1,29 +1,13 @@
+
 #include "HumanA.hpp"
 
-// Constructors
-HumanA ::HumanA ()
+HumanA::HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon)
+{ }
+
+HumanA::~HumanA()
+{ }
+
+void HumanA::attack() const
 {
-	std::cout << "\e[0;33mDefault Constructor called of HumanA \e[0m" << std::endl;
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }
-
-HumanA ::HumanA (const HumanA  &copy)
-{
-	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of HumanA \e[0m" << std::endl;
-}
-
-
-// Destructor
-HumanA ::~HumanA ()
-{
-	std::cout << "\e[0;31mDestructor called of HumanA \e[0m" << std::endl;
-}
-
-
-// Operators
-HumanA  & HumanA ::operator=(const HumanA  &assign)
-{
-	(void) assign;
-	return *this;
-}
-
