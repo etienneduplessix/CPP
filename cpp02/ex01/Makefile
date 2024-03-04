@@ -2,7 +2,7 @@
 NAME = exef
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror
-SRCS	= $(shell find ./. -iname "*.cpp")
+SRCS	= $(shell find . -iname "*.cpp")
 
 all: $(NAME)
 
