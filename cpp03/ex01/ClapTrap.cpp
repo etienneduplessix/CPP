@@ -1,5 +1,10 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+    : name("DefaultClapTrap"), hitPoints(10), energyPoints(10), attackDamage(0) {
+    std::cout << "ClapTrap default constructor called!" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string& name)
     : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
     std::cout << "ClapTrap " << name << " is born! Ready for action!" << std::endl;
@@ -44,4 +49,12 @@ void ClapTrap::beRepaired(unsigned int amount) {
     } else {
         std::cout << "ClapTrap " << name << " can't be repaired. Out of hit points." << std::endl;
     }
+}
+
+std::string ClapTrap::getName() const {
+    return name;
+}
+
+unsigned int ClapTrap::getAttackDamage() const {
+    return attackDamage;
 }

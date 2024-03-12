@@ -6,6 +6,7 @@
 
 class ClapTrap {
 public:
+    ClapTrap();
     ClapTrap(const std::string& name);
     ClapTrap(const ClapTrap& other);
     ~ClapTrap();
@@ -14,7 +15,10 @@ public:
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
-private:
+    std::string getName() const;
+    unsigned int getAttackDamage() const;
+
+protected:  // Make these accessible to derived classes
     std::string name;
     unsigned int hitPoints;
     unsigned int energyPoints;

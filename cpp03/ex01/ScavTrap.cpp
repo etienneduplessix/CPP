@@ -1,78 +1,52 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 02:28:36 by slee2             #+#    #+#             */
-/*   Updated: 2024/03/12 12:27:13 by etiennedupl      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap() {
-	this->Hitpoints = 100;
-	this->energy = 50;
-	this->damage = 20;
-	std::cout << "ScavTrap_Name : " << this->Name << std::endl;
+ScavTrap::ScavTrap() : ClapTrap() {
+    std::cout << "ScavTrap default constructor called!" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string _name): ClapTrap(_name) {
-	this->Hitpoints = 100;
-	this->energy = 50;
-	this->damage = 20;
-	std::cout << "ScavTrap_Name : " << this->Name << std::endl;
+ScavTrap::ScavTrap(const std::string& _name) : ClapTrap(_name) {
+    // Use the base class initializer list for ClapTrap members
+    std::cout << "ScavTrap " << name << " is born! Ready for gatekeeping!" << std::endl;
+    hitPoints = 100;  // Initialize ScavTrap-specific members after ClapTrap base class initialization
+    energyPoints = 50;
+    attackDamage = 20;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& scav)
+    : ClapTrap(scav) {
+    // Use the base class initializer list for ClapTrap members
+    std::cout << "ScavTrap " << name << " has been copied!" << std::endl;
+    hitPoints = scav.hitPoints;  // Initialize ScavTrap-specific members after ClapTrap base class initialization
+    energyPoints = scav.energyPoints;
+    attackDamage = scav.attackDamage;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap "<< this->Name << " has been destroyed." << std::endl;
+    std::cout << "ScavTrap " << name << " bids farewell. Gatekeeping duties completed!" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=( ScavTrap const& scav) {
-	ClapTrap::operator=(scav);
-	std::cout << "ScavTrap " << this->Name << " operator= is called" << std::endl;
-	return *this;
+void ScavTrap::attack(const std::string& target) {
+    if (hitPoints > 0 && energyPoints > 0) {
+        std::cout << "ScavTrap " << name << " attacks " << target
+                  << ", causing " << attackDamage << " points of damage!" << std::endl;
+        energyPoints--;
+    } else {
+        std::cout << "ScavTrap " << name << " can't attack. Not enough hit points or energy points." << std::endl;
+    }
 }
 
-void	ScavTrap::attack(std::string const & target) {
-	std::cout << "ScavTrap " << this->Name << \
-		" attacks " << target << " , causing " \
-		<< this->damage << " points of damage!" << std::endl;
+void ScavTrap::guardGate() {
+    std::cout << "ScavTrap " << name << " is now in Gatekeeper mode. Guarding the gate!" << std::endl;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount) {
-	if (this->energy <= amount) {
-		std::cout << this->Name << " is dead" << std::endl;
-		this->energy = 0;
-	}
-	else {
-		this->energy -= amount;
-		std::cout << "ScavTrap " << this->Name << \
-			" take Damage " << amount << " , remaning hp is " \
-			<< this->energy << std::endl;
-	}
-}
-
-void	ScavTrap::beRepaired(unsigned int amount) {
-	if (this->energy == 0) {
-		std::cout << "ScavTrap " << this->Name << " is repaired by " << amount << " and comes back to life" << std::endl;
-		this->energy += amount;
-	}
-	else {
-		this->energy += amount;
-		std::cout << "ScavTrap " << this->Name << " is repaired by " << amount << " and remaning hp is " << this->energy << std::endl;
-	}
-}
-
-void	ScavTrap::guardGate() {
-	if (energy)
-		std::cout << "ScavTrap " << this->Name << " has entered gate guard mode." << std::endl;
-	else
-		std::cout << "ScavTrap " << this->Name << " cannot enter gate guard mode because " << this->Name << " is dead." << std::endl;
-}
-
-ScavTrap::ScavTrap( const ScavTrap& scav) {
-	*this = scav;
+ScavTrap& ScavTrap::operator=(const ScavTrap& scav) {
+    if (this != &scav) {
+        // Perform assignment if needed
+        ClapTrap::operator=(scav);
+        // Additional assignments for ScavTrap-specific members if any
+        hitPoints = scav.hitPoints;
+        energyPoints = scav.energyPoints;
+        attackDamage = scav.attackDamage;
+    }
+    return *this;
 }
