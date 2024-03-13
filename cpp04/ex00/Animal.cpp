@@ -1,35 +1,29 @@
 #include "Animal.hpp"
 
-// Animal class implementations
-Animal::Animal() {}
-Animal::Animal(const Animal &copy) {}
-Animal::~Animal() {}
-Animal &Animal::operator=(const Animal &assign) { return *this; }
-
-// Dog class implementations
-Dog::Dog() {}
-Dog::Dog(const Dog &copy) {}
-Dog::~Dog() {}
-Dog &Dog::operator=(const Dog &assign) { return *this; }
-
-std::string Dog::getType() const {
-    return "Dog";
+Animal::Animal() : type("Animal") {
+    std::cout << "Animal constructor\n";
 }
 
-void Dog::makeSound() const {
-    std::cout << "Woof! Woof!" << std::endl;
+Animal::Animal(const Animal &copy) : type(copy.type) {
+    std::cout << "Animal copy constructor\n";
 }
 
-// Cat class implementations
-Cat::Cat() {}
-Cat::Cat(const Cat &copy) {}
-Cat::~Cat() {}
-Cat &Cat::operator=(const Cat &assign) { return *this; }
-
-std::string Cat::getType() const {
-    return "Cat";
+Animal::~Animal() {
+    std::cout << "Animal destructor\n";
 }
 
-void Cat::makeSound() const {
-    std::cout << "Meow! Meow!" << std::endl;
+Animal& Animal::operator=(const Animal &assign) {
+    if (this != &assign) {
+        type = assign.type;
+    }
+    std::cout << "Animal assignment operator\n";
+    return *this;
+}
+
+std::string Animal::getType() const {
+    return type;
+}
+
+void Animal::makeSound() const {
+    std::cout << "Animal sound\n";
 }
