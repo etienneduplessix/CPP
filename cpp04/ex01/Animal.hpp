@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 
+class Brain; 
 class Animal {
 public:
     Animal();
@@ -12,6 +14,7 @@ public:
     Animal& operator=(const Animal &assign);
     std::string getType() const;
     virtual void makeSound() const;
+    virtual Brain * getBrain() const = 0;
 
 protected:
     std::string type;

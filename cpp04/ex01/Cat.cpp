@@ -21,8 +21,8 @@ Cat &Cat::operator=(const Cat &cat)
 	if (this == &cat)
 		return (*this);
 	this->type = cat.type;
-	this->brain = new Brain();
-	*this->brain = *cat.brain;
+	delete this->brain;
+	this->brain = new Brain(*cat.getBrain());
 	return (*this);
 }
 
