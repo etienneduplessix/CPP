@@ -1,34 +1,53 @@
 #include "Brain.hpp"
+#include "Brain.hpp"
 
-Brain::Brain() {
-    std::cout << "Brain constructor\n";
+Brain::Brain()
+{
+	std::cout << "Brain's Default constructor called" << std::endl;
 }
 
-Brain::Brain(const Brain &copy) {
-    std::cout << "Brain copy constructor\n";
-    for (int i = 0; i < 100; ++i) {
-        ideas[i] = copy.ideas[i];
-    }
+Brain::Brain(const Brain &brain)
+{
+	std::cout << "Brain's Copy constructor called" << std::endl;
+	*this = brain;
 }
 
-Brain::~Brain() {
-    std::cout << "Brain destructor\n";
+Brain &Brain::operator=(const Brain &brain)
+{
+	std::cout << "Brain's Copy operator called" << std::endl;
+	if (this == &brain)
+		return (*this);
+	for (int i = 0; i < 100 ; i++)
+		this->ideas[i] = brain.ideas[i];
+	return (*this);
 }
 
-Brain& Brain::operator=(const Brain &assign) {
-    if (this != &assign) {
-        for (int i = 0; i < 100; ++i) {
-            ideas[i] = assign.ideas[i];
-        }
-    }
-    std::cout << "Brain assignment operator\n";
-    return *this;
+Brain::~Brain()
+{
+	std::cout << "Brain's Default destructor called" << std::endl;
 }
 
-std::string Brain::getIdea(int i) const {
-    return ideas[i];
+
+void Brain::setIdeas(std::string str, int i)
+{
+	if (i < 100 && i >= 0)
+	{
+		this->ideas[i] = str;
+	}
 }
 
-void Brain::setIdea(int i, const std::string& idea) {
-    ideas[i] = idea;
+void Brain::setAllIdeas(std::string str)
+{
+	for(int i = 0 ; i < 100 ; i++)
+	{
+		this->ideas[i] = str;
+	}
+}
+std::string Brain::getIdeas(int i) const
+{
+	if (i < 100 && i >= 0)
+	{
+		return (this->ideas[i]);
+	}
+	return (NULL);
 }

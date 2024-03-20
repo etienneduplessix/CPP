@@ -5,17 +5,17 @@
 #include <iostream>
 #include <string>
 
-class Brain {
-private:
-    std::string ideas[100];
-
-public:
-    Brain();
-    Brain(const Brain &copy);
-    ~Brain();
-    Brain& operator=(const Brain &assign);
-    std::string getIdea(const int i) const;
-    void setIdea(const int i, const std::string& idea);
+class Brain
+{
+	private:
+			std::string ideas[100];
+	public:
+			Brain();
+			Brain(const Brain &brain);
+			Brain &operator=(const Brain &brain);
+			~Brain();
+			void setIdeas(std::string str, int i);
+			void setAllIdeas(std::string str);
+			std::string getIdeas(int i) const;
 };
-
 #endif
