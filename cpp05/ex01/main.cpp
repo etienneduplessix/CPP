@@ -1,32 +1,20 @@
-// C++ program to demonstate the use of try,catch and throw
-// in exception handling.
-
 #include <iostream>
-using namespace std;
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
-{
-	int x = -1;
+int main() {
+    try {
+        Bureaucrat bureaucrat("John", 50);
+        std::cout << bureaucrat << std::endl;
 
-	// Some code
-	cout << "Before try \n";
+        Form form("Application Form", 40, 30);
+        std::cout << form << std::endl;
 
-	// try block
-	try {
-		cout << "Inside try \n";
-		if (x < 0) {
-			// throwing an exception
-			throw x;
-			cout << "After throw (Never executed) \n";
-		}
-	}
+        bureaucrat.signForm(form);
+        std::cout << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
 
-	// catch block
-	catch (int x) {
-		cout << "Exception Caught \n";
-	}
-
-	cout << "After catch (Will be executed) \n";
-	return 0;
+    return 0;
 }
-

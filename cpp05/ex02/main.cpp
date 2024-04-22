@@ -1,15 +1,20 @@
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include <iostream>
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
-{
- 	const Animal* j = new Dog();
- 	const Animal* i = new Cat();
- 	delete j;
- 	delete i;
-	return 0;
+int main() {
+    try {
+        Bureaucrat bureaucrat("John", 50);
+        std::cout << bureaucrat << std::endl;
+
+        Form form("Application Form", 40, 30);
+        std::cout << form << std::endl;
+
+        bureaucrat.signForm(form);
+        std::cout << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+    return 0;
 }
