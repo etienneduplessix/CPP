@@ -1,11 +1,6 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-// Define the operator<< function outside of the main function
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << "Name: " << bureaucrat.getName() << ", Grade: " << bureaucrat.getGrade();
-    return os;
-}
 
 int main() {
     try {

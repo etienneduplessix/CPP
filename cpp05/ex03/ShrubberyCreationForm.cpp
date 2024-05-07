@@ -43,3 +43,7 @@ std::string shrubbery =
 	out.close();
 	std::cout << "[Shrubbery] tree making success\n\n";
 }
+
+AForm* ShrubberyCreationForm::makeShrubbery(const std::string& target) {
+	return new ShrubberyCreationForm(target);
+}

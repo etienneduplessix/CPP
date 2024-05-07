@@ -17,6 +17,7 @@ class RobotomyRequestForm : public AForm {
 		~RobotomyRequestForm();
 
 		void execute(const Bureaucrat& bureaucrat) const;
+		static AForm* makeRobot(const std::string& target);
 };
 
 #endif

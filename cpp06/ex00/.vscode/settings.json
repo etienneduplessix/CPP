@@ -1,8 +1,5 @@
 {
       "files.associations": {
-            "ios": "cpp",
-            "exception": "cpp",
-            "ostream": "cpp",
             "__bit_reference": "cpp",
             "__config": "cpp",
             "__debug": "cpp",
@@ -31,7 +28,9 @@
             "ctime": "cpp",
             "cwchar": "cpp",
             "cwctype": "cpp",
+            "exception": "cpp",
             "initializer_list": "cpp",
+            "ios": "cpp",
             "iosfwd": "cpp",
             "iostream": "cpp",
             "istream": "cpp",
@@ -40,6 +39,7 @@
             "mutex": "cpp",
             "new": "cpp",
             "optional": "cpp",
+            "ostream": "cpp",
             "ratio": "cpp",
             "sstream": "cpp",
             "stdexcept": "cpp",

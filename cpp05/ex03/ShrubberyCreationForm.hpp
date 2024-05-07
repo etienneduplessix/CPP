@@ -17,6 +17,7 @@ class ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm();
 
 		void execute(const Bureaucrat& bureaucrat) const;
+		static AForm* makeShrubbery(const std::string& target);
 };
 
 #endif

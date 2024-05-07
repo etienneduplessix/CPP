@@ -24,3 +24,7 @@ void RobotomyRequestForm::execute(const Bureaucrat& bureaucrat) const {
 	else
 		std::cout << getName() << " has been failed robotomized\n\n";
 }
+
+AForm* RobotomyRequestForm::makeRobot(const std::string& target) {
+	return new RobotomyRequestForm(target);
+}

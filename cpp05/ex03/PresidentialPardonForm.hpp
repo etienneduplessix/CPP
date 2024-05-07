@@ -16,6 +16,7 @@ class PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm();
 
 		void execute(const Bureaucrat& bureaucrat) const;
+		static AForm* makePardon(const std::string& target);
 };
 
 #endif

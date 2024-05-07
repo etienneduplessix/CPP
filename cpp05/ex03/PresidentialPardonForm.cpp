@@ -20,3 +20,7 @@ void PresidentialPardonForm::execute(const Bureaucrat& bureaucrat) const {
 	checkExecute(bureaucrat);
 	std::cout << "[PARDON] " << getName() << " has been pardon by Zaphod Beeblebrox\n\n";
 }
+
+AForm* PresidentialPardonForm::makePardon(const std::string& target) {
+	return new PresidentialPardonForm(target);
+}
