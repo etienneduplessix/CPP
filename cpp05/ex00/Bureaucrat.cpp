@@ -11,14 +11,6 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {}
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
-    if (this != &other) {
-        this->name = other.name;
-        this->grade = other.grade;
-    }
-    return *this;
-}
-
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high";

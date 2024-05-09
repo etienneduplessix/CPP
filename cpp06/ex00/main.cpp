@@ -1,16 +1,12 @@
-
 #include "ScalarConverter.hpp"
 
+int main(int ac, char **av) {
+    if (ac != 2) {
+        std::cerr << "Usage: " << av[0] << " <input>" << std::endl;
+        return 1;
+    }
 
-int main() {
-    std::string input;
-
-    // Prompt user for input
-    std::cout << "Enter a string representation of a C++ literal: ";
-    std::cin >> input;
-
-    // Call the convert method of ScalarConverter
-    ScalarConverter::convert(input);
+    ScalarConverter::convert(av[1]);
 
     return 0;
 }

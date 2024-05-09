@@ -1,31 +1,28 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-
 int main() {
+    Bureaucrat test1("titi", 1);
+    
     try {
-        Bureaucrat test1("titi", 30);
-        Bureaucrat test2(test1); // Copy constructor
-        // Bureaucrat test3; // Remove this line, as you don't have a default constructor
-        // test3 = test1; // This line will be an error until you implement the assignment operator
-        Bureaucrat test4("kiki", 0); // Grade 0 is invalid, so an exception will be thrown here
+        Bureaucrat test2(test1);
     } catch (const std::exception &exc) {
         std::cout << exc.what() << std::endl;
     }
 
     try {
-        Bureaucrat test1("titi", 30);
         test1.incrementGrade();
     } catch(const std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
     try {
-        Bureaucrat test1("titi", 30);
         test1.decrementGrade();
     } catch(const std::exception& e) {
         std::cout << e.what() << std::endl;
     }
+
+    std::cout << test1 << std::endl;
 
     return 0;
 }

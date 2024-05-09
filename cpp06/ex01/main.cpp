@@ -1,24 +1,27 @@
 #include "Serialization.hpp"
 #include "data.h"
-#include <iostream>
-#include <cstdint> // Add this for uintptr_t
+#include <stdint.h>
 
-int main() {
-    Data data;
-    data.x = 123;
-    data.y = 'a';
+int main(void)
+{
+	Data	*obj = new Data();
+	std::cout << "> Data object created\n" << std::endl;
 
-    Serializer::Serializer serializer; // Create an instance of the Serializer class.
+	obj->moche = "lait";
+	std::cout << "Data member: " << obj->moche << std::endl;
+	std::cout << "Address: " << obj << std::endl;
 
-    std::uintptr_t serialized = serializer.serialize(&data); // Use std::uintptr_t instead of uintptr_t
+	uintptr_t	raw = Serializer::serialize(obj);
+	std::cout << "\n> Serialized: " << raw << std::endl;
 
-    Data* deserialized = serializer.deserialize(serialized);
+	obj = Serializer::deserialize(raw);
+	std::cout << "\n> After deserialize: " << std::endl;
 
-    if (&data == deserialized) {
-        std::cout << "Serialization and deserialization succeeded." << std::endl; // Corrected the missing quotation mark.
-    } else {
-        std::cout << "Serialization and deserialization failed." << std::endl; // Corrected the missing quotation mark.
-    }
+	std::cout << "\nData member: " << obj->moche << std::endl;
+	std::cout << "Address: " << obj << std::endl;
 
-    return 0;
+	delete obj;
+	return (0);
 }
+
+

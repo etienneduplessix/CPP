@@ -1,9 +1,11 @@
-#ifndef DATA_H
-#define DATA_H
+#ifndef DATA_HPP
+#define DATA_HPP
 
-struct Data {
-    int x;
-    char y;
-};
+#include <iostream>
 
-#endif // DATA_H
+typedef struct data_t
+{
+	std::string	moche;
+} Data;
+
+#endif // DATA_HPP

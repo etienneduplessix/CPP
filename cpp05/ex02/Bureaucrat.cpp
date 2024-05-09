@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
+
 Bureaucrat::Bureaucrat() : _name("default"), _grade(100) {};
 
 Bureaucrat::Bureaucrat(const std::string& name, int const grade)

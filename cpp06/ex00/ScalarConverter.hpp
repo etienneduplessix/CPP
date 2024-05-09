@@ -6,10 +6,12 @@
 #include <iomanip>
 #include <cstdlib>
 #include <cctype>
-#include <limits>
+#include <limits.h>
 #include <iomanip>
 #include <cmath>
 #include <cfloat>
+#include <errno.h>
+
 
 
 

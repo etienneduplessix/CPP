@@ -3,6 +3,7 @@
 
 #include <ctime>
 #include "AForm.hpp"
+#include <cstdlib>
 
 # define R_NAME "Robotomy_Request_Form"
 # define R_SIGN 72

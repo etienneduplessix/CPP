@@ -17,7 +17,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const {
 	checkExecute(bureaucrat);
-	std::ofstream out(getName() + "_shrubbery", std::ofstream::out | std::ofstream::trunc);
+	std::ofstream out((getName() + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (!out.good())
 		throw FileErrorException();
 std::string shrubbery = 

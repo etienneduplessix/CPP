@@ -1,15 +1,23 @@
-
 #ifndef SERIALIZATION_HPP
-#define SERIALIZATION_HPP
+# define SERIALIZATION_HPP
+
+#include <stdint.h>
 #include <iostream>
-#include <cstdint> 
 #include "data.h"
-namespace Serializer {
-    class Serializer {
-       public:
-             static uintptr_t serialize(Data* ptr);
-            static Data* deserialize(uintptr_t raw);
-    };
+
+class Serializer
+{
+	private:
+
+		Serializer(void);
+		Serializer(Serializer const &src);
+		Serializer&	operator=(Serializer const &assign);
+		~Serializer(void);
+
+	public:
+
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
-#endif // SERIALIZER_HPP
+#endif 
