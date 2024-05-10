@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "string_view": "c",
-        "exception": "cpp"
+        "exception": "cpp",
+        "iostream": "cpp"
     }
 }
