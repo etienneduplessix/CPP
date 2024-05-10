@@ -1,14 +1,34 @@
 #include <iostream>
 #include "iter.hpp"
+
+class Awesome
+{
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+  o << rhs.get();
+  return o;
+}
+
+template< typename T >
+void print( T& x )
+{
+  std::cout << x << std::endl;
+  return;
+}
+
 int main() {
-   
-    int intArray[] = {1, 2, 3, 4, 5};
-    iter(intArray, 5, printElement<int>); 
+  int tab[] = { 0, 1, 2, 3, 4 };
+  Awesome tab2[5];
 
-    std::cout << std::endl;
+  iter( tab, 5, print<const int> );
+  iter( tab2, 5, print<Awesome> );
 
-
-    char charArray[] = {'a', 'b', 'c', 'd', 'e'};
-    iter(charArray, 5, printElement<char>); 
-    return 0;
+  return 0;
 }
