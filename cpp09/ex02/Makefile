@@ -5,8 +5,8 @@ SRCS	= $(shell find . -iname "*.cpp")
 
 all: $(NAME)
 
-$(NAME):$(SRCS)
-	$(CXX) $(CXXFLAGS) $(SRCS) -o $@ 
+$(NAME):
+	$(CXX) $(CXXFLAGS) $(SRCS) -o $@ $^
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

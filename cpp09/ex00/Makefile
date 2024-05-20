@@ -1,11 +1,11 @@
-NAME = exef
+NAME = btc
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS	= $(shell find . -iname "*.cpp")
 
 all: $(NAME)
 
-$(NAME):$(SRCS)
+$(NAME):$(SRCS) 
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $@ 
 
 %.o: %.cpp
