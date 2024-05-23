@@ -1,4 +1,4 @@
-NAME = exef
+NAME = PmergeMe
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS	= $(shell find . -iname "*.cpp")
